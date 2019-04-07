@@ -1,0 +1,15 @@
+name: profanity-power-index
+channels:
+  - defaults
+dependencies:
+  - python=3.6
+  - pip:
+    - click
+    - ipython
+    - svl
+    - toolz
+    - elasticsearch>=6.0.0,<7.0.0
+    - loguru
+    - black
+    - python-dotenv
+    - python-twitter
