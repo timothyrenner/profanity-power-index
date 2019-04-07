@@ -13,3 +13,4 @@ dependencies:
     - black
     - python-dotenv
     - python-twitter
+    - flake8
