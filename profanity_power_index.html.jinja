@@ -14,18 +14,18 @@
         <div class="row">
             <h5 class="text-center">Collected from the Twitter public timeline.</h5>
         </div>
-        {% for row in target_rows %}
+        {% for subject in subjects %}
         <div class="row">
-            <div class="col-md-5" id="{{ row.id }}-barchart"></div>
+            <div class="col-md-5" id="{{ subject.id }}-barchart"></div>
             <div class="col-md-2">
-                <div class="row" id="{{ row.id }}-image">
-                    <img src="{{ row.image }}" style="width:180px; height:180px; border:2px solid black; margin: 1em auto 0">
+                <div class="row" id="{{ subject.id }}-image">
+                    <img src="{{ subject.image }}" style="width:180px; height:180px; border:2px solid black; margin: 1em auto 0">
                 </div>
                 <div class="row text-center">
                     <h5>{{ row.display_name }}</h5>
                 </div>
             </div>
-            <div class="col-md-5" id="{{ row.id }}-sparkline"></div>
+            <div class="col-md-5" id="{{ subject.id }}-sparkline"></div>
         </div>
         <hr>
         {% endfor %}

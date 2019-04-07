@@ -14,3 +14,5 @@ dependencies:
     - python-dotenv
     - python-twitter
     - flake8
+    - jinja2
+    - palettable
