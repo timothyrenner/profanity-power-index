@@ -4,6 +4,8 @@ import elasticsearch
 import sys
 import csv
 import re
+import sh
+import json
 
 from dotenv import load_dotenv, find_dotenv
 from loguru import logger
@@ -12,6 +14,7 @@ from dateutil import tz
 
 from collect_tweets import collect_tweets
 from extract_profanity import extract_profanity
+from build_site import build_site
 
 load_dotenv(find_dotenv())
 
@@ -109,6 +112,24 @@ def extract(start, end, track, elasticsearch_index, output):
     for result in results:
         writer.writerow(result)
     logger.info(f"🖕 Wrote {len(results)} rows to {output.name}. 🖕")
+
+
+@main.command()
+@click.argument("data_file", type=str)
+@click.argument("config_file", type=click.File("r"))
+@click.option("--output-dir", type=str)
+def build(data_file, config_file, output_dir):
+    if not os.path.exists(output_dir):
+        logger.info(f"{output_dir} does not exist. Creating.")
+        sh.mkdir(output_dir)
+    if not os.path.exists(f"{output_dir}/js"):
+        sh.mkdir(f"{output_dir}/js")
+    sh.cp(data_file, output_dir)
+    sh.cp("profanitypowerindex.js", f"{output_dir}/js")
+
+    template = build_site(json.load(config_file), f"{output_dir}/{data_file}")
+    with open(f"{output_dir}/index.html", "w") as index_out:
+        index_out.write(template)
 
 
 if __name__ == "__main__":
