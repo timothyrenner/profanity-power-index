@@ -1,7 +1,6 @@
-import importlib
-
 from toolz import assoc
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from palettable.colorbrewer import sequential as brewer
 
 env = Environment(
     loader=FileSystemLoader("."), autoescape=select_autoescape(["html"])
@@ -9,9 +8,7 @@ env = Environment(
 
 
 def _make_colors(subject_config):
-    color_scheme = importlib.import_module(
-        f"palettable.colorbrewer.sequential.{subject_config['colors']}_5"
-    )
+    color_scheme = getattr(brewer, f"{subject_config['colors']}_5")
     return {
         "sparkline": [
             {"offset": offset, "color": color}

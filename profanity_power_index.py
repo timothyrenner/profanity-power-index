@@ -125,9 +125,9 @@ def build(data_file, config_file, output_dir):
     if not os.path.exists(f"{output_dir}/js"):
         sh.mkdir(f"{output_dir}/js")
     sh.cp(data_file, output_dir)
-    sh.cp("profanitypowerindex.js", f"{output_dir}/js")
+    sh.cp("profanity_power_index.js", f"{output_dir}/js")
 
-    template = build_site(json.load(config_file), f"{output_dir}/{data_file}")
+    template = build_site(json.load(config_file), f"{data_file}")
     with open(f"{output_dir}/index.html", "w") as index_out:
         index_out.write(template)
 

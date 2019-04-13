@@ -22,7 +22,7 @@
                     <img src="{{ subject.image }}" style="width:180px; height:180px; border:2px solid black; margin: 1em auto 0">
                 </div>
                 <div class="row text-center">
-                    <h5>{{ row.display_name }}</h5>
+                    <h5>{{ subject.display_name }}</h5>
                 </div>
             </div>
             <div class="col-md-5" id="{{ subject.id }}-sparkline"></div>
@@ -40,9 +40,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="https://d3js.org/d3.v3.min.js" type="text/javascript"></script>
-    <script src="profanity_power_index.js" type="text/javascript"></script>
+    <script src="js/profanity_power_index.js" type="text/javascript"></script>
     <script>
         // TODO: Add the callback with the subjects.
-        d3.tsv({{ file_location }}), csvCallback({{ subjects | tojson }}));
+        d3.csv("{{ file_location }}", csvCallback({{ subjects | tojson }}));
     </script>
 </body>
