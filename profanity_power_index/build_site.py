@@ -1,11 +1,12 @@
 from toolz import assoc
-from jinja2 import Environment, FileSystemLoader, select_autoescape
+from jinja2 import Environment, PackageLoader, select_autoescape
 from palettable.colorbrewer import sequential as brewer_sequential
 from palettable.colorbrewer import diverging as brewer_diverging
 from palettable.colorbrewer import qualitative as brewer_qualitative
 
 env = Environment(
-    loader=FileSystemLoader("."), autoescape=select_autoescape(["html"])
+    loader=PackageLoader("profanity_power_index", "resources"),
+    autoescape=select_autoescape(["html"]),
 )
 
 

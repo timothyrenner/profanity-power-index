@@ -6,15 +6,16 @@ import csv
 import re
 import sh
 import json
+import importlib_resources
 
 from dotenv import load_dotenv, find_dotenv
 from loguru import logger
 from datetime import datetime
 from dateutil import tz
 
-from collect_tweets import collect_tweets
-from extract_profanity import extract_profanity
-from build_site import build_site
+from profanity_power_index.collect_tweets import collect_tweets
+from profanity_power_index.extract_profanity import extract_profanity
+from profanity_power_index.build_site import build_site
 
 load_dotenv(find_dotenv())
 
@@ -125,12 +126,11 @@ def build(data_file, config_file, output_dir):
     if not os.path.exists(f"{output_dir}/js"):
         sh.mkdir(f"{output_dir}/js")
     sh.cp(data_file, output_dir)
-    sh.cp("profanity_power_index.js", f"{output_dir}/js")
+    with importlib_resources.path(
+        "profanity_power_index.resources", "profanity_power_index.js"
+    ) as js_path:
+        sh.cp(js_path, f"{output_dir}/js")
 
     template = build_site(json.load(config_file), f"{data_file}")
     with open(f"{output_dir}/index.html", "w") as index_out:
         index_out.write(template)
-
-
-if __name__ == "__main__":
-    main()
