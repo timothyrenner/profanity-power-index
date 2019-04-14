@@ -42,14 +42,51 @@ def main():
 
 
 @main.command()
-@click.option("--track", "-t", multiple=True)
 @click.option(
-    "--elasticsearch-index", "-e", type=str, default="profanity-power-index"
+    "--track",
+    "-t",
+    multiple=True,
+    help="A target to track. This option can be repeated. "
+    "At least one is required.",
 )
-@click.option("--drop-index", "-d", is_flag=True)
-@click.option("--batch-size", "-b", type=int, default=10)
+@click.option(
+    "--elasticsearch-index",
+    "-e",
+    type=str,
+    default="profanity-power-index",
+    help="The name of the elasticsearch index to save the results to. "
+    "Default: profanity-power-index.",
+)
+@click.option(
+    "--drop-index",
+    "-d",
+    is_flag=True,
+    help="Whether to drop the elasticsearch index prior to collecting. "
+    "Default: False.",
+)
+@click.option(
+    "--batch-size",
+    "-b",
+    type=int,
+    default=10,
+    help="The batch size for bulk writing to Elasticsearch. Default: 10.",
+)
 def collect(track, elasticsearch_index, drop_index, batch_size):
+    """
+    Collects tweets from the Twitter public timeline for the specified
+    tracking terms that contain profanity and saves them to Elasticsearch.
 
+    Requires the following four environment variables (which can be loaded from
+    a .env file):
+
+    TWITTER_CONSUMER_KEY
+    TWITTER_CONSUMER_SECRET
+    TWITTER_ACCESS_TOKEN_KEY
+    TWITTER_ACCESS_TOKEN_SECRET
+
+    The elasticsearch URL can be controlled through ELASTICSEARCH_HOST, which
+    defaults to "http://localhost:9200".
+    """
     if not track:
         logger.error("❌ Must track at least one term. ❌")
         sys.exit(1)
@@ -72,12 +109,38 @@ def collect(track, elasticsearch_index, drop_index, batch_size):
 @main.command()
 @click.argument("start", type=str)
 @click.argument("end", type=str)
-@click.option("--track", "-t", multiple=True)
 @click.option(
-    "--elasticsearch-index", "-e", type=str, default="profanity-power-index"
+    "--track",
+    "-t",
+    multiple=True,
+    help="A target to track. This option can be repeated. "
+    "At least one is required.",
 )
-@click.option("--output", "-o", type=click.File("w"), default="-")
+@click.option(
+    "--elasticsearch-index",
+    "-e",
+    type=str,
+    default="profanity-power-index",
+    help="The Elasticsearch index to pull the data from. "
+    "Default: profanity-power-index.",
+)
+@click.option(
+    "--output",
+    "-o",
+    type=click.File("w"),
+    default="-",
+    help="The name of the output file to save the data to. Default: stdout",
+)
 def extract(start, end, track, elasticsearch_index, output):
+    """
+    Extracts data from Elasticsearch into a CSV file.
+
+    Arguments:\n
+        START - The start date as YYYY-mm-ddTHH:MM:SS. Time zone offset is
+            optional by adding +/-ZZZZ. Defaults to local system timezone.\n
+        END - The end date as YYYY-mm-ddTHH:MM:SS. Time zone offset is
+            optional by adding +/-ZZZZ. Defaults to local system timezone.
+    """
     if not track:
         logger.error("❌ Must track at least one term. ❌")
         sys.exit(1)
@@ -118,8 +181,20 @@ def extract(start, end, track, elasticsearch_index, output):
 @main.command()
 @click.argument("data_file", type=str)
 @click.argument("config_file", type=click.File("r"))
-@click.option("--output-dir", type=str)
+@click.option(
+    "--output-dir",
+    type=str,
+    help="The output directory to render the site to.",
+)
 def build(data_file, config_file, output_dir):
+    """
+    Builds a site with a fancy interactive visualization.
+
+    Arguments:\n
+        DATA_FILE - The CSV file with the profanity. See README for schema.
+        CONFIG_FILE - The JSON file with the site configuration.
+    See README for schema.
+    """
     if not os.path.exists(output_dir):
         logger.info(f"{output_dir} does not exist. Creating.")
         sh.mkdir(output_dir)
