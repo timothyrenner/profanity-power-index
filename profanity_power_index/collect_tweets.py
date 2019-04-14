@@ -116,14 +116,17 @@ def collect_tweets(
     logger.info(f"Sending tweets to {elasticsearch_index}.")
     failed = 0
     succeeded = 0
+    logger.info(
+        f"{failed + succeeded} tweets processed: "
+        f"{succeeded} succeeded, {failed} failed."
+    )
     # Since the doc stream is partitioned we get the tweets in batches.
     for tweet_batch in tweet_doc_stream:
+        ok, fail = es_bulk(es_client, tweet_batch, stats_only=True)
+        succeeded += ok
+        failed += fail
         if (failed + succeeded) % 100 == 0:
             logger.info(
                 f"{failed + succeeded} tweets processed: "
                 f"{succeeded} succeeded, {failed} failed."
             )
-        ok, fail = es_bulk(es_client, tweet_batch, stats_only=True)
-        succeeded += ok
-        failed += fail
-    pass  # TODO: Implement.
