@@ -44,7 +44,10 @@ def _extract_text(tweet):
 
 
 def _contains_profanity(tweet):
-    tweet_text = _extract_text(tweet).lower()
+    try:
+        tweet_text = _extract_text(tweet).lower()
+    except Exception:
+        return False
     for profanity in PROFANITY:
         if profanity in tweet_text:
             return True

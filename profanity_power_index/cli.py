@@ -206,6 +206,8 @@ def build(data_file, config_file, output_dir):
     ) as js_path:
         sh.cp(js_path, f"{output_dir}/js")
 
-    template = build_site(json.load(config_file), f"{data_file}")
+    template = build_site(
+        json.load(config_file), f"{os.path.basename(data_file)}"
+    )
     with open(f"{output_dir}/index.html", "w") as index_out:
         index_out.write(template)
