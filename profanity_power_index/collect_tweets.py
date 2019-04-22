@@ -24,7 +24,6 @@ PROFANITY = [
     "shit",
     "bitch",
     "dick",
-    "douche",
     " ass ",
     "asshole",
     "asshat",

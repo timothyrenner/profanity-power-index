@@ -9,7 +9,6 @@ PROFANITY_MAPPING = {
     "bitch": "text:bitch*",
     "ass": "text:ass*",
     "dick": "text:*dick*",
-    "douche": "text:douche*",
 }
 
 
