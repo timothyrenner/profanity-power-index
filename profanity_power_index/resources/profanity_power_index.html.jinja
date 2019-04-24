@@ -29,14 +29,19 @@
         </div>
         <hr>
         {% endfor %}
+        <div class="row">
+            <p class="text-center">
+                Technical shit: Collected with <a href="https://github.com/bear/python-twitter">python-twitter</a> and <a href="https://github.com/elastic/elasticsearch">Elasticsearch</a>.
+            </p>
+            <p class="text-center">
+                Visualization built with <a href="https://d3js.org/">D3.js</a>.
+            </p>
+            <p class="text-center">
+                Check out the code on <a href="https://github.com/timothyrenner/profanity-power-index">GitHub</a>.
+            </p>
+        </div>
     </div>
-    <div class="row">
-        <p class="text-center">
-            Technical shit: Collected with <a href="https://github.com/bear/python-twitter">python-twitter</a> and <a href="https://github.com/elastic/elasticsearch">Elasticsearch</a>.
-            Visualization built with <a href="https://d3js.org/">D3.js</a>.
-            Check out the code on <a href="https://github.com/timothyrenner/profanity-power-index">GitHub</a>.
-        </p>
-    </div>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="https://d3js.org/d3.v3.min.js" type="text/javascript"></script>
@@ -46,3 +51,4 @@
         d3.csv("{{ file_location }}", csvCallback({{ subjects | tojson }}));
     </script>
 </body>
+</html>
