@@ -42,7 +42,9 @@ def time_range(start, end):
             "created_at": {
                 "gte": start,
                 "lte": end,
-                "format": "date_time_no_millis",
+                # Yes this is literally date_time_no_millis in the docs.
+                # no, date_time_no_millis does not work.
+                "format": "yyyy-MM-dd'T'HH:mm:ssZZ"
             }
         }
     }

@@ -166,7 +166,9 @@ def extract(start, end, track, elasticsearch_index, output):
         f"🖕 Extracting profanity between {start} and {end} "
         f"for {', '.join(track)} in {elasticsearch_index}. 🖕"
     )
-    results = extract_profanity(es, start, end, track)
+    results = extract_profanity(
+        es, start, end, track, elasticsearch_index=elasticsearch_index
+    )
     logger.info(f"Writing to {output.name}.")
 
     writer = csv.DictWriter(

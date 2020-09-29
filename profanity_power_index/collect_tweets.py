@@ -6,14 +6,12 @@ from loguru import logger
 
 TWEET_MAPPING = {
     "mappings": {
-        "tweet": {
-            "properties": {
-                "coordinates": {"type": "geo_point"},
-                "created_at": {
-                    "type": "date",
-                    "format": "EEE MMM dd HH:mm:ss Z yyyy",
-                },
-            }
+        "properties": {
+            "coordinates": {"type": "geo_point"},
+            "created_at": {
+                "type": "date",
+                "format": "EEE MMM dd HH:mm:ss Z yyyy",
+            },
         }
     }
 }
@@ -57,7 +55,6 @@ def _contains_profanity(tweet):
 def _tweet_to_bulk(index, tweet):
     return {
         "_index": index,
-        "_type": "tweet",
         "_id": tweet["id_str"],
         "_source": {
             "id": tweet["id_str"],
