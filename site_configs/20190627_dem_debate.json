@@ -1,0 +1,81 @@
+{
+    "subjects": [
+        {
+            "name": "biden",
+            "display_name": "Joe Biden",
+            "id": "joe-biden",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/464835807837044737/vO0cnKR1_400x400.jpeg"
+        },
+        {
+            "name": "bennet",
+            "display_name": "Michael Bennet",
+            "id": "michael-bennet",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/710170820593594368/mmQAxCJk_400x400.jpg"
+        },
+        {
+            "name": "buttigieg",
+            "display_name": "Pete Buttigieg",
+            "id": "pete-buttigieg",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/1117312669546164224/k2cPXvek_400x400.png"
+        },
+        {
+            "name": "gillibrand",
+            "display_name": "Kirsten Gillibrand",
+            "id": "kirsten-gillibrand",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/1139649498786013184/3aHp3eOC_400x400.jpg"
+        },
+        {
+            "name": "kamala",
+            "display_name": "Kamala Harris",
+            "id": "kamala-harris",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/1093306247766515712/MBaqSY2M_400x400.jpg"
+        },
+        {
+            "name": "hickenlooper",
+            "display_name": "John Hickenlooper",
+            "id": "john-hickenlooper",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/1102532550885404672/RJU91nA-_400x400.png"
+        },
+        {
+            "name": "bernie",
+            "display_name": "Bernie Sanders",
+            "id": "bernie-sanders",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/1097820307388334080/9ddg5F6v_400x400.png"
+        },
+        {
+            "name": "swalwell",
+            "display_name": "Eric Swalwell",
+            "id": "eric-swalwell",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/1092197753151782914/1sk6ojXx_400x400.jpg"
+        },
+        {
+            "name": "williamson",
+            "display_name": "Marianne Williamson",
+            "id": "marianne-williamson",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/859507720814305281/nTvKAGL6_400x400.jpg"
+        },
+        {
+            "name": "yang",
+            "display_name": "Andrew Yang",
+            "id": "andrew-yang",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/1042886888225267712/1W9BKljE_400x400.jpg"
+        },
+        {
+            "name": "trump",
+            "display_name": "Donald Trump",
+            "id": "donald-trump",
+            "colors": "Reds",
+            "image": "https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_400x400.jpg"
+        }
+    ]
+}

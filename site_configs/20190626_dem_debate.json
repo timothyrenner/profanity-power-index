@@ -1,0 +1,81 @@
+{
+    "subjects": [
+        {
+            "name": "warren",
+            "display_name": "Elizabeth Warren",
+            "id": "elizabeth-warren",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/722044174799777792/bXaodRhx_400x400.jpg"
+        },
+        {
+            "name": "booker",
+            "display_name": "Cory Booker",
+            "id": "cory-booker",
+            "colors": "Blues",
+            "image":"https://pbs.twimg.com/profile_images/1091308075041079297/Yz_PLR20_400x400.jpg"
+        },
+        {
+            "name": "beto",
+            "display_name": "Beto O'Rourke",
+            "id": "beto-orourke",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/1018220845829951489/k52zY0rS_400x400.jpg"
+        },
+        {
+            "name": "klobuchar",
+            "display_name": "Amy Klobuchar",
+            "id": "amy-klobuchar",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/1059812997982511105/lgFAlE5t_400x400.jpg"
+        },
+        {
+            "name": "blasio",
+            "display_name": "Bill de Blasio",
+            "id": "bill-de-blasio",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/1129060882678312961/jNBAnDqG_400x400.png"
+        },
+        {
+            "name": "castro",
+            "display_name": "Julian Castro",
+            "id": "julian-castro",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/1084179879384494080/6pZz_T3l_400x400.jpg"
+        },
+        {
+            "name": "delaney",
+            "display_name": "John Delaney",
+            "id": "john-delaney",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/1017761512818012161/DXlTw-1E_400x400.jpg"
+        },
+        {
+            "name": "gabbard",
+            "display_name": "Tulsi Gabbard",
+            "id": "tulsi-gabbard",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/1084116035303804928/vEQ-8yXX_400x400.jpg"
+        },
+        {
+            "name": "inslee",
+            "display_name": "Jay Inslee",
+            "id": "jay-inslee",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/1108410962275528704/xfhVAsqW_400x400.png"
+        },
+        {
+            "name": "tim ryan",
+            "display_name": "Tim Ryan",
+            "id": "tim-ryan",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/1141762398027702273/qsRBAjpj_400x400.jpg"
+        },
+        {
+            "name": "trump",
+            "display_name": "Donald Trump",
+            "id": "donald-trump",
+            "colors": "Reds",
+            "image": "https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_400x400.jpg"
+        }
+    ]
+}
