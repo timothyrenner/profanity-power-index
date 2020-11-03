@@ -1,0 +1,18 @@
+{
+    "subjects": [
+        {
+            "name": "biden",
+            "display_name": "Joe Biden",
+            "id": "joe-biden",
+            "colors": "Blues",
+            "image": "https://pbs.twimg.com/profile_images/464835807837044737/vO0cnKR1_400x400.jpeg"
+        },
+        {
+            "name": "trump",
+            "display_name": "Donald Trump",
+            "id": "donald-trump",
+            "colors": "Reds",
+            "image": "https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_400x400.jpg"
+        }
+    ]
+}
