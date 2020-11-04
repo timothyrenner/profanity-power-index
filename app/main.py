@@ -31,7 +31,7 @@ slider_marks = {
         },
     }
     for m in rrule(freq=MINUTELY, dtstart=start_time, until=end_time)
-    if ((m - start_time).seconds // 60) % 30 == 0
+    if ((m - start_time).seconds // 60) % 60 == 0
 }
 
 biden_pic_url = (
