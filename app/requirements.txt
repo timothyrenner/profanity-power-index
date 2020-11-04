@@ -1,0 +1,4 @@
+dash>=1.0,<2.0
+dash_bootstrap_components>=0.10,<1.0
+pandas>=1.0,<2.0
+python-dateutil
